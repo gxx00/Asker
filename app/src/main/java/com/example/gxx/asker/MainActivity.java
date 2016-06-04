@@ -1,6 +1,8 @@
 package com.example.gxx.asker;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -18,12 +20,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void DecFirstStart() {
-        SharedPUtils sp=new SharedPUtils(this,"asker",SharedPUtils.VALUES_GET);
+        SharedPUtils sp=new SharedPUtils(getApplicationContext(),"asker",SharedPUtils.VALUES_GET);
         if(sp.getBooleanValue("isStart"))
         {
+            SharedPreferences sharedPreferences=getSharedPreferences("asker", Context.MODE_PRIVATE);
+            sharedPreferences.edit().putBoolean("isStart",false).commit();
             startActivity(new Intent(this,SplashActivity.class));
-            sp.ChangeMode(SharedPUtils.VALUES_PUT);
-            sp.PutValue("isStart",false);
             this.finish();
         }
     }

@@ -9,55 +9,52 @@ import android.content.SharedPreferences;
 public class SharedPUtils {
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor se;
-    public static final int VALUES_PUT=1;
-    public static final int VALUES_GET=2;
-    public SharedPUtils(Context context,String name,int mode){
+    public static final int VALUES_PUT = 1;
+    public static final int VALUES_GET = 2;
 
-            sharedPreferences = context.getSharedPreferences(name, Context.MODE_PRIVATE);
-        if(mode==VALUES_PUT)
-        se=sharedPreferences.edit();
+    public SharedPUtils(Context context, String name, int mode) {
+
+        sharedPreferences = context.getSharedPreferences(name, Context.MODE_PRIVATE);
+        if (mode == VALUES_PUT)
+            se = sharedPreferences.edit();
     }
-    public  String geStringtValue(String key)
-    {
-     return sharedPreferences.getString(key,"");
+
+    public String geStringtValue(String key) {
+        return sharedPreferences.getString(key, "");
     }
-    public int getIntValue(String key)
-    {
-        return sharedPreferences.getInt(key,0);
+
+    public int getIntValue(String key) {
+        return sharedPreferences.getInt(key, 0);
     }
-    public boolean getBooleanValue(String key)
-    {
-        return sharedPreferences.getBoolean(key,true);
+
+    public boolean getBooleanValue(String key) {
+        return sharedPreferences.getBoolean(key, true);
     }
-    public long getLongVaule(String key)
-    {
-        return sharedPreferences.getLong(key,0l);
+
+    public long getLongVaule(String key) {
+        return sharedPreferences.getLong(key, 0l);
     }
-    public float getFloatVaue(String key)
-    {
-        return sharedPreferences.getFloat(key,0.0f);
+
+    public float getFloatVaue(String key) {
+        return sharedPreferences.getFloat(key, 0.0f);
     }
-    public void PutValue(String key,Object o)
-    {
-        if (o instanceof String)
-        {
+
+    public void PutValue(String key, Object o) {
+        if (o instanceof String) {
             se.putString(key, (String) o);
-        }else if(o instanceof Integer)
-        {
+        } else if (o instanceof Integer) {
             se.putInt(key, (Integer) o);
-        }else if(o instanceof  Long)
-        {
+        } else if (o instanceof Long) {
             se.putLong(key, (Long) o);
-        }else if(o instanceof  Float)
-        {
+        } else if (o instanceof Float) {
             se.putFloat(key, (Float) o);
         }
         se.commit();
     }
-    public void ChangeMode(int mode)
-    {
-        if(mode==VALUES_PUT)
-            se=sharedPreferences.edit();
+
+    public void ChangeMode(int mode) {
+        if (mode == VALUES_PUT)
+            se = sharedPreferences.edit();
     }
 
 }
