@@ -92,7 +92,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private void ChangeTabSelect(int i) {
         for (int j = 0; j < lls.length; j++) {
             if (j == i) {
-                Log.d("HomeActivity", i + "");
                 lls[j].getChildAt(0).setSelected(true);
             } else {
                 lls[j].getChildAt(0).setSelected(false);
