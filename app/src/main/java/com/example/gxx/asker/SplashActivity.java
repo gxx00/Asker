@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.example.gxx.fragment.fragment_Splash_vp;
-import com.example.gxx.util.SharedPUtils;
 import com.example.gxx.view.PointView;
 
 import java.util.ArrayList;
@@ -109,7 +108,7 @@ public class SplashActivity extends AppCompatActivity implements ViewPager.OnPag
         switch (v.getId()) {
             case R.id.splash_bt:
 
-                startActivity(new Intent(this, MainActivity.class));
+                startActivity(new Intent(this, HomeActivity.class));
                 this.finish();
                 break;
         }
