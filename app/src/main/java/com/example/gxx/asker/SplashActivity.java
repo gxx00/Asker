@@ -74,7 +74,7 @@ public class SplashActivity extends AppCompatActivity implements ViewPager.OnPag
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
+         
     }
 
     @Override
