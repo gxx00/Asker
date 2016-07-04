@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.gxx.fragment.HomeFragment;
+
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
     private long first_back_time = 0l;
     private LinearLayout home_tab_home;
@@ -18,18 +20,40 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private LinearLayout home_tab_me;
     private FrameLayout home_fragment;
     private LinearLayout lls[] = new LinearLayout[4];
+    private HomeFragment homefragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
+        initFragments();
         doViews();
+        ChangeFragments(0);
 
     }
 
+    private void initFragments() {
+        homefragment = new HomeFragment();
+
+    }
+
+    private void ChangeFragments(int i) {
+        switch (i) {
+            case 0:
+                getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment, homefragment).commit();
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+        }
+    }
+
     private void doViews() {
-        ImageView iv= (ImageView) home_tab_home.getChildAt(0);
+        ImageView iv = (ImageView) home_tab_home.getChildAt(0);
         iv.setSelected(true);
 
         home_tab_home.setOnClickListener(this);
